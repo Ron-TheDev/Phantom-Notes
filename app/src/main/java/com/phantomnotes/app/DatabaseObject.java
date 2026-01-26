@@ -1,4 +1,4 @@
-package com.example.noteyboi;
+package com.phantomnotes.app;
 
 //import io.realm.Realm;
 //import io.realm.RealmObject;

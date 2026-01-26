@@ -1,5 +1,5 @@
 
-package com.example.noteyboi;
+package com.phantomnotes.app;
 
 import android.content.ContentValues;
 import android.content.Context;
