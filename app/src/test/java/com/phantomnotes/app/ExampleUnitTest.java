@@ -1,4 +1,4 @@
-package com.example.noteyboi;
+package com.phantomnotes.app.noteyboi;
 
 import org.junit.Test;
 
