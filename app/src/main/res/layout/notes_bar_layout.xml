@@ -1,93 +1,91 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:id="@+id/floatingToolbar"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/backgroundElevation"
-    android:gravity="center|center_horizontal"
-    android:orientation="horizontal"
-    android:weightSum="5"
-    android:elevation="10dp"
-    android:padding="5dp">
+    android:layout_margin="32dp"
+    android:visibility="visible"
+    android:elevation="8dp"
+    app:cardCornerRadius="28dp"
+    app:cardBackgroundColor="?attr/colorSurface">
 
-    <Button
-        android:id="@+id/buttonBack"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_weight="1"
-        android:background="@drawable/button_background"
-        android:drawableBottom="@drawable/iconseight_back"
-        android:drawableTint="@color/colorText"
-        android:minWidth="40dp"
-        android:minHeight="40dp"
-        android:paddingLeft="6dp"
-        android:paddingRight="6dp"
-        android:textColor="#000"
-        android:layout_margin="5dp"
-        app:rippleColor="@color/colorDisabled" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="8dp">
 
-    <Button
-        android:id="@+id/buttonEdit"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:background="@drawable/button_background"
-        android:drawableBottom="@drawable/iconseight_edit"
-        android:drawableTint="@color/colorText"
-        android:minWidth="40dp"
-        android:minHeight="40dp"
-        android:paddingLeft="6dp"
-        android:paddingRight="6dp"
-        android:textColor="#000"
-        app:rippleColor="@color/colorDisabled" />
+        <!-- Back button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonBack"
+            style="@style/Widget.Material3.Button.IconButton"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="4dp"
+            app:backgroundTint="?attr/colorSurface"
+            app:icon="@drawable/iconseight_back"
+            app:iconTint="?attr/colorPrimary"
+            app:rippleColor="?attr/colorPrimary" />
 
-    <Button
-        android:id="@+id/buttonUndo"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_weight="1"
-        android:background="@drawable/button_background"
-        android:drawableBottom="@drawable/iconseight_undo"
-        android:drawableTint="@color/colorText"
-        android:minWidth="40dp"
-        android:minHeight="40dp"
-        android:paddingLeft="6dp"
-        android:paddingRight="6dp"
-        android:textColor="#000"
-        android:layout_margin="5dp"
-        app:rippleColor="@color/colorDisabled" />
+        <!-- Edit button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonEdit"
+            style="@style/Widget.Material3.Button.IconButton"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="4dp"
+            app:icon="@drawable/iconseight_edit"
+            app:iconTint="?attr/colorPrimary"
+            app:backgroundTint="?attr/colorSurface"
+            app:rippleColor="?attr/colorPrimary" />
 
-    <Button
-        android:id="@+id/buttonSave"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_weight="1"
-        android:background="@drawable/button_background"
-        android:drawableBottom="@drawable/iconseight_save"
-        android:drawableTint="@color/colorText"
-        android:minWidth="40dp"
-        android:minHeight="40dp"
-        android:paddingLeft="6dp"
-        android:paddingRight="6dp"
-        android:textColor="#000"
-        android:layout_margin="5dp"
-        app:rippleColor="@color/colorDisabled" />
+        <!-- Undo button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonUndo"
+            style="@style/Widget.Material3.Button.IconButton"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="4dp"
+            app:icon="@drawable/iconseight_undo"
+            app:iconTint="?attr/colorPrimary"
+            app:backgroundTint="?attr/colorSurface"
+            app:rippleColor="?attr/colorPrimary" />
 
-    <Button
-        android:id="@+id/buttonMenu"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_weight="1"
-        android:background="@drawable/button_background"
-        android:drawableBottom="@drawable/iconseight_menu"
-        android:drawableTint="@color/colorText"
-        android:minWidth="40dp"
-        android:minHeight="40dp"
-        android:paddingLeft="6dp"
-        android:paddingRight="6dp"
-        android:textColor="#000"
-        android:layout_margin="5dp"
-        app:rippleColor="@color/colorDisabled" />
-</LinearLayout>
+        <!-- Save button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonSave"
+            style="@style/Widget.Material3.Button.IconButton"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="4dp"
+            app:icon="@drawable/iconseight_save"
+            app:iconTint="?attr/colorPrimary"
+            app:backgroundTint="?attr/colorSurface"
+            app:rippleColor="?attr/colorPrimary" />
+
+        <!-- Menu button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonMenu"
+            style="@style/Widget.Material3.Button.IconButton"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="4dp"
+            app:icon="@drawable/iconseight_menu"
+            app:iconTint="?attr/colorPrimary"
+            app:backgroundTint="?attr/colorSurface"
+            app:rippleColor="?attr/colorPrimary" />
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

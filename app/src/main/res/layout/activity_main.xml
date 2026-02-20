@@ -1,95 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootCoordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundElevation"
+    android:background="?attr/colorSurface"
     tools:context=".MainActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!-- AppBar with embedded search bar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorSurface"
+        app:elevation="4dp"
+        android:paddingHorizontal="32dp">
+
+        <!-- Toolbar -->
+
+        <!-- Search bar embedded inside AppBarLayout -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/searchBarCard"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginBottom="8dp"
+            app:cardCornerRadius="@dimen/cornerRadiusSmall"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="?attr/colorSurface"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:layout_marginHorizontal="32dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="16dp">
+
+                <EditText
+                    android:id="@+id/editTextSearch"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="@string/search"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textColorHint="?attr/colorOnSurfaceVariant"
+                    android:singleLine="true"
+                    android:imeOptions="actionSearch"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Main content -->
+    <include
+        android:id="@+id/content"
+        layout="@layout/content_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:ignore="ExtraText">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_marginTop="8dp"/>
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/toolbarLayout"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="@color/backgroundElevation"
-            android:theme="@style/AppTheme.AppBarOverlay"
-            app:elevation="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:popupTheme="@style/AppTheme.PopupOverlay"
-                app:title=' '>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-condensed"
-                    android:maxLines="1"
-                    android:text="@string/app_name"
-                    android:textColor="@color/colorText"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-            </androidx.appcompat.widget.Toolbar>
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-        <EditText
-            android:id="@+id/editTextSearch"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="30dp"
-            android:autofillHints=""
-            android:background="@drawable/searchbar_style"
-            android:ems="10"
-            android:fontFamily="sans-serif-condensed"
-            android:hint="@string/search"
-            android:inputType="text"
-            android:minHeight="48dp"
-            android:paddingVertical="10dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:shadowColor="#000"
-            android:singleLine="true"
-            android:textColor="@color/colorText"
-            android:textColorHint="@color/colorTextDimmed"
-            android:textSize="20sp"
-            app:cardElevation="@dimen/elevationSmall"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbarLayout" />
-
-        <include
-            android:id="@+id/content"
-            layout="@layout/content_main"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="5dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextSearch" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+    <!-- Squared FAB -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fabMargin"
-        android:tint="#fff"
+        app:backgroundTint="?attr/colorPrimary"
+        app:cornerRadius="0dp"
+        app:tint="@android:color/white"
         app:srcCompat="@drawable/iconseight_plus_math" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

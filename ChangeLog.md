@@ -12,27 +12,35 @@ DD-MM/YY
 
 
 25-1/26 Build 1
-MainActivity Refactor: 
 Added
 ViewBinding support
-Enabled viewBinding in module build.gradle
-Introduced ActivityMainBinding for type-safe view access
+Enabled viewBinding in module build.gradle and introduced ActivityMainBinding for type-safe view access
+Migrated RecyclerViewAdapter to ListAdapter with DiffUtil for efficient list updates and animations.
+Adapter now owns its own data; submitList() used for updates.
+DiffUtil tracks item changes using ID for identity and name/note for content equality.
 
 Changed
 Refactored MainActivity to use ViewBinding instead of findViewById
-Updated toolbar, FAB, and RecyclerView initialization to use binding references
 Reworked RecyclerView setup to:
 Initialize adapter once
-Update data via list mutation and notifyDataSetChanged()
-Converted options menu handling from if statements to a switch statement
 Improved lifecycle handling by refreshing data in onResume()
+Renamed app source package to com.phantomnotes.app to match applicationId.
+Updated AndroidManifest.xml to match new package; launcher activity points to correct MainActivity.
+ViewHolders updated to bind data safely using DatabaseObject instances.
+Deletion now handled in adapter with proper notifyItemRemoved() / submitList() updates — no MainActivity coupling.
+Clicks and long-clicks correctly navigate or delete notes while keeping UI and database in sync.
 
 Fixed
 Removed static references to RecyclerView, adapter, and data list to prevent memory leaks
 Corrected ViewBinding import to align with applicationId
 Resolved RecyclerView binding errors caused by views defined in included layouts
 Ensured RecyclerView access matches actual XML hierarchy (binding.includeId.recyclerView)
+SQLManager class now properly imported and referenced.
+Fully qualified class references replaced with clean imports.
+Refactor: RecyclerViewAdapter Modernization
+Removed all legacy notifyDataSetChanged() calls.
+Adapter no longer accesses static lists or static references to MainActivity.
+Eliminated potential memory leaks from static references.
 
 Removed
-Deprecated view lookup pattern using findViewById
 Unused imports and legacy patterns
