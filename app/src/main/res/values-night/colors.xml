@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#15161F</color>
-    <color name="colorPrimaryDark">#000000</color>
 
-    <color name="foregroundElevation">#15161F</color>
-    <color name="backgroundElevation">#000000</color>
-    <color name="colorAccent">#2BC9C9</color>
-    <color name="colorDisabled">#ADD1FF</color>
-    <color name="colorText">#D8D8D8</color>
-    <color name="colorTextDimmed">#999999</color>
-    <color name="colorTextInverted">#000000</color>
+    <!-- Primary / Accent -->
+    <color name="md_theme_primary">#6750A4</color>
+    <color name="md_theme_onPrimary">#FFFFFF</color>
+    <color name="md_theme_primaryContainer">#15161F</color>
+    <color name="md_theme_onPrimaryContainer">#D8D8D8</color>
+
+    <!-- Secondary / Action -->
+    <color name="md_theme_secondary">#512DAF</color>
+    <color name="md_theme_onSecondary">#FFFFFF</color>
+    <color name="md_theme_secondaryContainer">#1E1F2A</color>
+    <color name="md_theme_onSecondaryContainer">#B6A1EF</color>
+
+    <!-- Surface / Elevation -->
+    <color name="md_theme_surface">#15161F</color>
+    <color name="md_theme_onSurface">#D8D8D8</color>
+    <color name="md_theme_surfaceVariant">#1E1F2A</color>
+    <color name="md_theme_onSurfaceVariant">#999999</color>
+
+    <!-- Error / optional -->
+    <color name="md_theme_error">#CF6679</color>
+    <color name="md_theme_onError">#000000</color>
+
 </resources>

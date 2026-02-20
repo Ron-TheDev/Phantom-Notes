@@ -3,7 +3,7 @@
     <item android:state_pressed="true" android:state_enabled="true">
         <shape>
             <solid
-                android:color="@color/colorAccent"/>
+                android:color="?attr/colorSurface"/>
 
             <padding
                 android:padding="5dp"
@@ -18,7 +18,7 @@
     <item android:state_pressed="false" android:state_enabled="true">
         <shape>
             <solid
-                android:color="@color/foregroundElevation"/>
+                android:color="?attr/colorSurface"/>
 
             <padding
                 android:padding="5dp"
@@ -33,7 +33,7 @@
     <item android:state_enabled="false">
         <shape>
             <solid
-                android:color="@color/backgroundElevation"/>
+                android:color="?attr/colorSurface"/>
 
             <padding
                 android:padding="5dp"

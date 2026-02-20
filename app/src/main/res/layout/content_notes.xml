@@ -1,78 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/appBarCoLayout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
     tools:context=".NotesActivity">
 
-<!--    <ScrollView-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="0dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.0">-->
+    <!-- Collapsible Area -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:theme="@style/ThemeOverlay.Material3.Dark.ActionBar"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="20dp">
 
-<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent">-->
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|enterAlways">
 
-    <EditText
-        android:id="@+id/NoteName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@color/backgroundElevation"
-        android:ems="10"
-        android:hint="@string/Access_Hint_NoteName"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName|textCapWords"
-        android:padding="5dp"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:textColor="@color/colorText"
-        android:textColorHint="@color/colorTextDimmed"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="VisualLintTextFieldSize" />
+            <EditText
+                android:id="@+id/NoteName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:maxHeight="300dp"
+                android:background="?attr/colorSurface"
+                android:ems="10"
+                android:hint="@string/Access_Hint_NoteName"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName|textCapWords"
+                android:padding="5dp"
+                android:textColor="?attr/colorOnSurface"
+                android:textColorHint="?attr/colorOnSurfaceVariant"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                tools:ignore="VisualLintTextFieldSize" />
 
-    <EditText
-        android:id="@+id/Notes"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="60dp"
-        android:background="@color/backgroundElevation"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="@string/Access_Hint_Notes"
-        android:importantForAutofill="no"
-        android:inputType="textCapSentences|textMultiLine"
-        android:isScrollContainer="true"
-        android:minHeight="48dp"
-        android:paddingHorizontal="10dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="50dp"
-        android:scrollbarAlwaysDrawHorizontalTrack="false"
-        android:scrollbarAlwaysDrawVerticalTrack="false"
-        android:scrollbarSize="2dp"
-        android:scrollbarStyle="insideOverlay"
-        android:scrollbars="vertical"
-        android:textColor="@color/colorText"
-        android:textColorHighlight="@color/colorAccent"
-        android:textColorHint="@color/colorTextDimmed"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/NoteName"
-        tools:ignore="VisualLintTextFieldSize" />
-<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
-<!--    </ScrollView>-->
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <EditText
+            android:id="@+id/Notes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="60dp"
+            android:background="?attr/colorSurface"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="@string/Access_Hint_Notes"
+            android:importantForAutofill="no"
+            android:inputType="textCapSentences|textMultiLine"
+            android:isScrollContainer="true"
+            android:minHeight="200dp"
+            android:paddingHorizontal="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="50dp"
+            android:scrollbarAlwaysDrawHorizontalTrack="false"
+            android:scrollbarAlwaysDrawVerticalTrack="false"
+            android:scrollbarSize="2dp"
+            android:scrollbarStyle="insideOverlay"
+            android:scrollbars="vertical"
+            android:textColor="?attr/colorOnSurface"
+            android:textColorHighlight="?attr/colorPrimary"
+            android:textColorHint="?attr/colorOnSurfaceVariant"
+            android:textSize="18sp"
+            tools:ignore="VisualLintTextFieldSize" />
+
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

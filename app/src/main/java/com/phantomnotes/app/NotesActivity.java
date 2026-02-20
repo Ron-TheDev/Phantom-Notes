@@ -191,7 +191,7 @@ public class NotesActivity extends AppCompatActivity {
         String textName =  nameView.getText().toString();
         String textNote =  noteView.getText().toString();
 
-        if (textName.equals("") && textNote.equals("")){
+        if (textName.isEmpty() && textNote.isEmpty()){
             Snackbar.make(coordinatorLayout, "Nothing to save", Snackbar.LENGTH_LONG)
                     .setAction("??", null).show();
         } else {
